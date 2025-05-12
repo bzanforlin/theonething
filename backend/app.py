@@ -20,6 +20,7 @@ def update_transcripts_list(new_transcript):
         
 
 app = Flask(__name__)
+
 allowed_origin = os.getenv("EXTENSION_ORIGIN")
 CORS(app, origins=[allowed_origin])
 
@@ -46,7 +47,7 @@ def transcribe():
             os.remove(temp_path)
     
 # route to send transcript and user intent to openai so it analyzes whether the user has completed their intent
-@app.route("/analyze", methods=["POST"])
+@app.route("/analyze", methods=["POST", "OPTIONS"])
 def analyze():
     data = request.get_json()
     transcript = data.get("transcript", "")
