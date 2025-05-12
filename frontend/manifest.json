@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "The One Thing",
+    "version": "1.0",
+    "description": "Helps you say the thing that matters most in your meetings.",
+    "action": {
+      "default_popup": "one.html"
+    },
+    "host_permissions": ["http://localhost:5000/", "http://127.0.0.1:5000/"],
+    "permissions": ["tabs","activeTab","storage"]
+  }
