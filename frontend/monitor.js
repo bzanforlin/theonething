@@ -95,7 +95,7 @@ function analyze(blob) {
   formData.append("file", audioFile);
 
   // route to get the transcript through backend
-  fetch("http://localhost:5001/transcribe", {
+  fetch("https://theonething-backend.onrender.com/transcribe", {
     method: "POST",
     body: formData
   })
@@ -105,7 +105,7 @@ function analyze(blob) {
     //console.log("transcript:", transcript);
 
     // sends transcript and user intent to openai, with prompt, through route on the backend
-    return fetch("http://localhost:5001/analyze", {
+    return fetch("https://theonething-backend.onrender.com/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ transcript, intent: user_intent })

@@ -20,7 +20,8 @@ def update_transcripts_list(new_transcript):
         
 
 app = Flask(__name__)
-CORS(app, origins="*", supports_credentials=True)
+allowed_origin = os.getenv("EXTENSION_ORIGIN")
+CORS(app, origins=[allowed_origin])
 
 # route to get audio files and send to openai for transcription
 @app.route("/transcribe", methods=["POST", "OPTIONS"])
